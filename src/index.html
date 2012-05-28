@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Hello World!</title>
+
+		<script type="text/template" id="post-row">
+			<p class='title'> <%= title %>
+				<span>   (<%= domain %>)</span>
+			</p>
+			<p>
+				<span class='points'><%= points %> points </span> - 
+				<span class='user'><%= user %></span>
+			</p>
+		</script>
+
+		<script type="text/template" id="discussion-comment">
+			<p class='comment' >
+				<div style="margin-left: <%= level %>px">
+					<p>
+						<span class='user'><%= user %></span>:
+					</p>				
+					<%= comment_body %>
+				</div>
+			</p>
+		</script>
+		<link rel="stylesheet" href="css/default.css" type="text/css">
+		<script type="text/javascript" src="lib/zepto.min.js"></script>
+		<script type="text/javascript">
+			if (!$){$ = Zepto}; //zepto fix
+		</script>
+		<script type="text/javascript" src="lib/underscore-min.js"></script>
+		<script type="text/javascript" src="lib/backbone-min.js"></script>
+		<script type="text/javascript" src="js/app.js"></script>
+		<script type="text/javascript" src="js/utils/news_parser.js"></script>
+		<script type="text/javascript" src="js/utils/discussion_parser.js"></script>
+		<script type="text/javascript" src="js/utils/utils.js"></script>
+		<script type="text/javascript" src="js/router.js"></script>
+		<script type="text/javascript" src="js/models/post.js"></script>
+		<script type="text/javascript" src="js/models/discussion.js"></script>
+		<script type="text/javascript" src="js/collections/news.js"></script>
+		<script type="text/javascript" src="js/collections/newest.js"></script>
+		<script type="text/javascript" src="js/collections/ask.js"></script>
+		<script type="text/javascript" src="js/collections/jobs.js"></script>
+		<script type="text/javascript" src="js/views/page.js"></script>
+		<script type="text/javascript" src="js/views/news.js"></script>
+		<script type="text/javascript" src="js/views/post_row.js"></script>
+		<script type="text/javascript" src="js/views/post.js"></script>
+		<script type="text/javascript">
+			HN.init();
+		</script>
+		
+
+	</head>
+	<body>
+
+	</body>
+</html>

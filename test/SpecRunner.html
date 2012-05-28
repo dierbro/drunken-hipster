@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Jasmine Spec Runner</title>
+
+  <script type="text/javascript" src="../src/lib/zepto.min.js"></script>
+  <link rel="shortcut icon" type="image/png" href="lib/jasmine-1.1.0.rc1/jasmine_favicon.png">
+
+  <link rel="stylesheet" type="text/css" href="lib/jasmine-1.1.0.rc1/jasmine.css">
+  <script type="text/javascript" src="lib/jasmine-1.1.0.rc1/jasmine.js"></script>
+  <script type="text/javascript" src="lib/jasmine-1.1.0.rc1/jasmine-html.js"></script>
+  <script>
+    jQuery = Zepto
+  </script>
+  <script type="text/javascript" src="lib/jasmine-fake-ajax.js"></script>
+
+  <!-- include spec files here... -->
+  <script type="text/javascript" src="spec/SpecHelper.js"></script>
+  <script type="text/javascript" src="spec/HNSpec.js"></script>
+  <script type="text/javascript" src="spec/collections/NewsSpec.js"></script>
+  <script type="text/javascript" src="spec/utils/NewsParserSpec.js"></script>
+  <script type="text/javascript" src="spec/utils/DiscussionParserSpec.js"></script>
+
+  <!-- include source files here... -->
+  <script type="text/javascript" src="../src/lib/underscore-min.js"></script>
+  <script type="text/javascript" src="../src/lib/backbone-min.js"></script>
+  <script type="text/javascript" src="../src/js/app.js"></script>
+  <script type="text/javascript" src="../src/js/models/post.js"></script>
+  <script type="text/javascript" src="../src/js/collections/news.js"></script>
+  <script type="text/javascript" src="../src/js/collections/newest.js"></script>
+  <script type="text/javascript" src="../src/js/collections/ask.js"></script>
+  <script type="text/javascript" src="../src/js/collections/jobs.js"></script>
+  <script type="text/javascript" src="../src/js/utils/news_parser.js"></script>
+  <script type="text/javascript" src="../src/js/utils/discussion_parser.js"></script>
+
+
+  <script type="text/javascript">
+    (function() {
+      var jasmineEnv = jasmine.getEnv();
+      jasmineEnv.updateInterval = 1000;
+
+      var trivialReporter = new jasmine.TrivialReporter();
+
+      jasmineEnv.addReporter(trivialReporter);
+
+      jasmineEnv.specFilter = function(spec) {
+        return trivialReporter.specFilter(spec);
+      };
+
+      var currentWindowOnload = window.onload;
+
+      window.onload = function() {
+        if (currentWindowOnload) {
+          currentWindowOnload();
+        }
+        execJasmine();
+      };
+
+      function execJasmine() {
+        jasmineEnv.execute();
+      }
+
+    })();
+  </script>
+
+</head>
+
+<body>
+</body>
+</html>

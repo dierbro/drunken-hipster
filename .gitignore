@@ -1,0 +1,4 @@
+.template/*
+development/*
+local_config.json
+release/*
