@@ -28,7 +28,7 @@ class HN.Utils.DiscussionParser
 			reply_link_html = $(tr).find("span.comment > p:last-child").remove()
 			comment = 
 				reply_link: reply_link
-				comment_body: $(tr).find("span.comment font").html()
+				comment_body: $(tr).find("span.comment").html()
 				user: $(tr).find("span.comhead > a").html()
 				level: parseInt $(tr).find("td:first-child > img").attr("width")
 			comments.push comment

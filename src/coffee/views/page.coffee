@@ -30,7 +30,7 @@ class HN.Views.Page extends Backbone.View
 		else
 			@.$el.appendTo('body').hide()
 			@.$el.show()
-		
-		
+
+
 		window.scrollTo(0, 0)
 	

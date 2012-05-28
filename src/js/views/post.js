@@ -13,7 +13,11 @@
 
     Post.prototype.template = _.template($('#post-row').html());
 
+    Post.prototype.template_commands = _.template($('#discussion-commands').html());
+
     Post.prototype.template_comment = _.template($('#discussion-comment').html());
+
+    Post.prototype.template_comment_menu = _.template($('#discussion-comment-menu').html());
 
     Post.prototype.events = {
       "click p.title": "open"
@@ -28,11 +32,13 @@
     Post.prototype.render = function() {
       var comment, _i, _len, _ref;
       this.$el.append(this.template(this.model.toJSON()));
+      this.$el.append(this.template_commands(this.model.toJSON()));
       _ref = this.model.get("comments");
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         comment = _ref[_i];
         this.$el.append(this.template_comment(comment));
       }
+      $("font").removeAttr("color");
       return this;
     };
 

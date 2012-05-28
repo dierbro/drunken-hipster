@@ -41,8 +41,13 @@ div.page  p > span.points{
 }
 
 p.comment{
-	color: #CB7832;
+	color: #CB7832 !important;
 	border-bottom: 1px solid white;
+}
+
+p.commands{
+	border-top: 1px solid white;
+	padding-top: 8px;
 }
 /*.description {
 	padding: 0px 10px 0px 10px;

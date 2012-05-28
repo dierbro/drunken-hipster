@@ -6,23 +6,33 @@
 		<script type="text/template" id="post-row">
 			<p class='title'> <%= title %>
 				<span>   (<%= domain %>)</span>
+			
 			</p>
 			<p>
 				<span class='points'><%= points %> points </span> - 
 				<span class='user'><%= user %></span>
 			</p>
 		</script>
-
+		<script type="text/template" id="discussion-commands">
+			<p class="commands"> 
+				<span>
+					<a href="<%= link %>"><img src="img/external_browser.png" alt="external browser"></a>
+				</span>
+			</p>
+		</script>
 		<script type="text/template" id="discussion-comment">
-			<p class='comment' >
-				<div style="margin-left: <%= level %>px">
+			<p class="comment">
+				<div style="margin-left: <%= level/2 %>px">
 					<p>
 						<span class='user'><%= user %></span>:
-					</p>				
-					<%= comment_body %>
+					</p>
+					<div>
+						<%= comment_body %>
+					</div>
 				</div>
 			</p>
 		</script>
+
 		<link rel="stylesheet" href="css/default.css" type="text/css">
 		<script type="text/javascript" src="lib/zepto.min.js"></script>
 		<script type="text/javascript">
