@@ -2,3 +2,4 @@
 development/*
 local_config.json
 release/*
+forge-error.log

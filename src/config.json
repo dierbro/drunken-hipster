@@ -40,6 +40,19 @@
 		"sms": true,
 		"tabs": true,
 		"tools": true,
-		"topbar": true
+		"topbar": true,
+		"icons": {
+            "android": {
+                "36": "img/icons/android/36.png",
+                "48": "img/icons/android/48.png",
+                "72": "img/icons/android/72.png"
+            },
+            "ios": {
+                "57": "img/icons/iOS/57.png",
+                "72": "img/icons/iOS/72.png",
+                "114": "img/icons/iOS/114.png",
+                "prerendered": true
+            }
+        }
 	}
 }
