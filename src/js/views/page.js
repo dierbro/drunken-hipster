@@ -13,25 +13,25 @@
 
     Page.prototype.className = "page";
 
-    Page.prototype.initialize = function() {
-      return this.render();
-    };
+    Page.prototype.initialize = function() {};
 
     Page.prototype.show = function() {
-      var $old, direction_coefficient, _base;
+      var $old;
       $('.page').css({
         "position": "absolute"
       });
-      direction_coefficient = typeof (_base = this.options).back === "function" ? _base.back({
-        1: -1
-      }) : void 0;
-      if (this.options.back != null) {
+      console.log(this.options.back);
+      if (this.options.back) {
         forge.topbar.addButton({
-          text: "News",
+          text: "Back",
           position: "left"
         }, function() {
           return HN.router.navigate("/", true);
         });
+        forge.tabbar.hide();
+      } else {
+        forge.topbar.removeButtons();
+        forge.tabbar.show();
       }
       if ($('.page').length) {
         $old = $('.page').not(this.el);

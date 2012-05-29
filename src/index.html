@@ -5,12 +5,18 @@
 
 		<script type="text/template" id="post-row">
 			<p class='title'> <%= title %>
-				<span>   (<%= domain %>)</span>
+				<% if(domain){ %>
+					<span>   (<%= domain %>)</span>
+				<% } %>
 			
 			</p>
 			<p>
-				<span class='points'><%= points %> points </span> - 
-				<span class='user'><%= user %></span>
+				<% if(!isNaN(points)){ %>
+					<span class='points'><%= points %> points </span> - 
+				<% } %>
+				<% if(user){ %>
+					<span class='user'><%= user %></span>
+				<% } %>
 			</p>
 		</script>
 		<script type="text/template" id="discussion-commands">
@@ -21,18 +27,21 @@
 			</p>
 		</script>
 		<script type="text/template" id="discussion-comment">
-			<p class="comment">
-				<div style="margin-left: <%= level/2 %>px">
-					<p>
-						<span class='user'><%= user %></span>:
-					</p>
-					<div>
-						<%= comment_body %>
-					</div>
+			<div style="padding-left: <%= level/2 %>px" class="comment">
+				<p>
+					<span class='user'><%= user %></span>:
+				</p>
+				<div>
+					<%= comment_body %>
 				</div>
-			</p>
+			</div>
 		</script>
-
+		<script type="text/template" id="discussion-comment-menu">
+			<ul  class="menu">
+				<li><img src="img/user.png" alt="external browser"></a></li>
+				<li><img src="img/reply.png" alt="external browser"></a></li>
+			</ul>
+		</script>
 		<link rel="stylesheet" href="css/default.css" type="text/css">
 		<script type="text/javascript" src="lib/zepto.min.js"></script>
 		<script type="text/javascript">
@@ -47,6 +56,7 @@
 		<script type="text/javascript" src="js/router.js"></script>
 		<script type="text/javascript" src="js/models/post.js"></script>
 		<script type="text/javascript" src="js/models/discussion.js"></script>
+		<script type="text/javascript" src="js/models/comment.js"></script>
 		<script type="text/javascript" src="js/collections/news.js"></script>
 		<script type="text/javascript" src="js/collections/newest.js"></script>
 		<script type="text/javascript" src="js/collections/ask.js"></script>
@@ -55,6 +65,7 @@
 		<script type="text/javascript" src="js/views/news.js"></script>
 		<script type="text/javascript" src="js/views/post_row.js"></script>
 		<script type="text/javascript" src="js/views/post.js"></script>
+		<script type="text/javascript" src="js/views/comment.js"></script>
 		<script type="text/javascript">
 			HN.init();
 		</script>

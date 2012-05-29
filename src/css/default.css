@@ -40,15 +40,32 @@ div.page  p > span.points{
 	color: #A4C260;
 }
 
-p.comment{
-	color: #CB7832 !important;
+div.comment{
+	color: #E6E0DB !important;
 	border-bottom: 1px solid white;
 }
 
-p.commands{
-	border-top: 1px solid white;
-	padding-top: 8px;
-}
+ul.menu {
+	padding: 4px;
+	margin-left: 0;
+	display: inline;
+	} 
+
+ul.menu li {
+	margin-left: 0;
+	padding: 3px 15px;
+	list-style: none;
+	display: inline;
+	}
+	
+		
+ul.menu li.first {
+	margin-left: 0;
+	border-left: none;
+	list-style: none;
+	display: inline;
+	}
+
 /*.description {
 	padding: 0px 10px 0px 10px;
 }

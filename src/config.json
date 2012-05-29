@@ -41,6 +41,7 @@
 		"tabs": true,
 		"tools": true,
 		"topbar": true,
+		"tabbar": true,
 		"icons": {
             "android": {
                 "36": "img/icons/android/36.png",

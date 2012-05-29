@@ -12,6 +12,45 @@
       forge.topbar.show();
       forge.topbar.setTitle("HN");
       forge.topbar.setTint([255, 102, 0, 255]);
+      forge.tabbar.addButton({
+        icon: "img/user.png",
+        text: "News",
+        index: 0
+      }, function(button) {
+        button.setActive();
+        return button.onPressed.addListener(function() {
+          console.log("button news");
+          return HN.router.navigate("/", true);
+        });
+      });
+      forge.tabbar.addButton({
+        icon: "img/user.png",
+        text: "New",
+        index: 1
+      }, function(button) {
+        return button.onPressed.addListener(function() {
+          return HN.router.navigate("newest", true);
+        });
+      });
+      forge.tabbar.addButton({
+        icon: "img/user.png",
+        text: "Job",
+        index: 2
+      }, function(button) {
+        return button.onPressed.addListener(function() {
+          return HN.router.navigate("jobs", true);
+        });
+      });
+      forge.tabbar.addButton({
+        icon: "img/user.png",
+        text: "Ask",
+        index: 3
+      }, function(button) {
+        return button.onPressed.addListener(function() {
+          return HN.router.navigate("ask", true);
+        });
+      });
+      forge.tabbar.show();
       originalSync = Backbone.sync;
       Backbone.sync = function(method, model, options) {
         options = _.extend(options, {
@@ -22,12 +61,18 @@
         return originalSync.apply(Backbone, [method, model, options]);
       };
       HN.news = new HN.Collections.News();
-      return HN.news.fetch({
+      HN.news.fetch({
         success: function(collection, response) {
           HN.router = new HN.Router();
           return Backbone.history.start();
         }
       });
+      HN.newest = new HN.Collections.Newest();
+      HN.newest.fetch();
+      HN.jobs = new HN.Collections.Jobs();
+      HN.jobs.fetch();
+      HN.ask = new HN.Collections.Ask();
+      return HN.ask.fetch();
     }
   };
 

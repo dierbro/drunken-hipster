@@ -2,18 +2,23 @@ class HN.Views.Page extends Backbone.View
 	className: "page"
 
 	initialize: () ->
-		@render()
+		#@render()
 	
 	show: () ->
 		$('.page').css({"position": "absolute"})
-		direction_coefficient = @.options.back? 1 : -1
-		if @.options.back?
+		console.log @options.back
+		if @options.back
 			forge.topbar.addButton(
-				text: "News"
+				text: "Back"
 				position: "left"
 				, () ->
 					HN.router.navigate("/" , true);
 				)
+			forge.tabbar.hide()
+		else
+			forge.topbar.removeButtons()
+			forge.tabbar.show()
+
 		if $('.page').length
 			$old = $('.page').not(@.el)
 
@@ -21,12 +26,9 @@ class HN.Views.Page extends Backbone.View
 			$old.get(0).style["-webkit-transform"] = ""
 
 			@.$el.appendTo('body').hide()
-			@.$el.show() #.css({"margin-left": 320 * direction_coefficient})
-			#@.$el.anim({translate3d: -320 * direction_coefficient +'px,0,0'}, 0.3, 'linear')
-			#$old.anim({translate3d: -320 * direction_coefficient + 'px,0,0'}, 0.3, 'linear', () ->
+			@.$el.show()
 			$old.remove()
 			$('.page').css({"position": "static"})
-			#)
 		else
 			@.$el.appendTo('body').hide()
 			@.$el.show()

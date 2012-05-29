@@ -10,6 +10,43 @@ window.HN = {
 		forge.topbar.show()
 		forge.topbar.setTitle("HN")
 		forge.topbar.setTint([255,102,0,255])
+
+		forge.tabbar.addButton
+			icon: "img/user.png"
+			text: "News"
+			index: 0
+			,
+			(button) ->
+				button.setActive()
+				button.onPressed.addListener () ->
+					console.log("button news")
+					HN.router.navigate("/" , true);
+		forge.tabbar.addButton
+			icon: "img/user.png"
+			text: "New"
+			index: 1
+			,
+			(button) ->
+				button.onPressed.addListener () ->
+					HN.router.navigate("newest" , true);
+		forge.tabbar.addButton
+			icon: "img/user.png"
+			text: "Job"
+			index: 2
+			,
+			(button) ->
+				button.onPressed.addListener () ->
+					HN.router.navigate("jobs" , true);
+		forge.tabbar.addButton
+			icon: "img/user.png"
+			text: "Ask"
+			index: 3
+			,
+			(button) ->
+				button.onPressed.addListener () ->
+					HN.router.navigate("ask" , true);
+
+		forge.tabbar.show()
 		originalSync = Backbone.sync
 
 		# Our new overriding sync with dataType and ContentType
@@ -30,7 +67,11 @@ window.HN = {
 				HN.router = new HN.Router()
 				Backbone.history.start()
 		)
-
-		
+		HN.newest = new HN.Collections.Newest()
+		HN.newest.fetch()
+		HN.jobs = new HN.Collections.Jobs()
+		HN.jobs.fetch()
+		HN.ask = new HN.Collections.Ask()
+		HN.ask.fetch()
 }
 

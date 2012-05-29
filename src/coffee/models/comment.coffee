@@ -1,0 +1,1 @@
+class HN.Models.Comment extends Backbone.Model  

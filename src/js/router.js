@@ -13,6 +13,9 @@
 
     Router.prototype.routes = {
       "": "news",
+      "newest": "newest",
+      "jobs": "jobs",
+      "ask": "ask",
       "post/:id": "post"
     };
 
@@ -24,6 +27,36 @@
         back: false
       });
       return news.show();
+    };
+
+    Router.prototype.newest = function() {
+      var newest;
+      console.log("Newest");
+      newest = new HN.Views.News({
+        collection: HN.newest,
+        back: false
+      });
+      return newest.show();
+    };
+
+    Router.prototype.jobs = function() {
+      var jobs;
+      console.log("Jobs");
+      jobs = new HN.Views.News({
+        collection: HN.jobs,
+        back: false
+      });
+      return jobs.show();
+    };
+
+    Router.prototype.ask = function() {
+      var ask;
+      console.log("ask");
+      ask = new HN.Views.News({
+        collection: HN.ask,
+        back: false
+      });
+      return ask.show();
     };
 
     Router.prototype.post = function(id) {

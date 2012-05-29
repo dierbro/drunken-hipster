@@ -4,3 +4,7 @@ class HN.Models.Discussion extends Backbone.Model
 
 	parse: (response) ->
 		return HN.Utils.DiscussionParser.parse(response)
+
+	comments: ->
+		for comment in @get("comments")
+			new HN.Models.Comment(comment)

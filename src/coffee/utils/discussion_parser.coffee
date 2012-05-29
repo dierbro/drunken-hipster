@@ -3,13 +3,14 @@ class HN.Utils.DiscussionParser
 	@parse: (content) ->
 		discussion =  @extract_details(content)
 		discussion["comments"] = @extract_comment(content)
-			
+		console.log discussion
 		return discussion
 
 	@extract_details: (content) ->
 		details_delim = 'height:10px'
 		news_counter = 0
 		trs = $(content).find("center > table > tbody > tr:nth-child(3) > td > table:nth-child(1) tr")
+		$(trs[3]).find("td:nth-child(2) form").remove()
 		details = 
 			link: $(trs[0]).find("td:nth-child(2) > a").attr("href")
 			title: $(trs[0]).find("td:nth-child(2) > a").html()
@@ -18,6 +19,7 @@ class HN.Utils.DiscussionParser
 			user: $(trs[1]).find("td:nth-child(2) > a:nth-child(2)").html()
 			discussion_link: $(trs[1]).find("td:nth-child(2) > a:nth-child(3)").attr("href")
 			comments_counter: @get_comments_count($(trs[1]).find("td:nth-child(2) > a:nth-child(3)").html())
+			body: $(trs[3]).find("td:nth-child(2)").html()
 
 	@extract_comment: (content) ->
 		trs = $(content).find("center > table > tbody > tr:nth-child(3) > td > table:nth-child(4) > tbody > tr")

@@ -1,6 +1,9 @@
 class HN.Router extends Backbone.Router
 	routes:
 		"" : "news"
+		"newest" : "newest"
+		"jobs" : "jobs"
+		"ask" : "ask"
 		"post/:id": "post"
 
 	news: ->
@@ -11,6 +14,32 @@ class HN.Router extends Backbone.Router
 		)
 
 		news.show()
+
+	newest: ->
+		console.log("Newest")
+		newest = new HN.Views.News(
+			collection: HN.newest
+			back: false
+		)
+
+		newest.show()
+	jobs: ->
+		console.log("Jobs")
+		jobs = new HN.Views.News(
+			collection: HN.jobs
+			back: false
+		)
+
+		jobs.show()
+	ask: ->
+		console.log("ask")
+		ask = new HN.Views.News(
+			collection: HN.ask
+			back: false
+		)
+
+		ask.show()
+
 
 	post: (id) ->
 		console.log("Post - "+id)
