@@ -12,7 +12,7 @@ window.HN = {
 		forge.topbar.setTint([255,102,0,255])
 
 		forge.tabbar.addButton
-			icon: "img/user.png"
+			icon: "img/list.png"
 			text: "News"
 			index: 0
 			,
@@ -22,7 +22,7 @@ window.HN = {
 					console.log("button news")
 					HN.router.navigate("/" , true);
 		forge.tabbar.addButton
-			icon: "img/user.png"
+			icon: "img/list.png"
 			text: "New"
 			index: 1
 			,
@@ -30,7 +30,7 @@ window.HN = {
 				button.onPressed.addListener () ->
 					HN.router.navigate("newest" , true);
 		forge.tabbar.addButton
-			icon: "img/user.png"
+			icon: "img/list.png"
 			text: "Job"
 			index: 2
 			,
@@ -38,7 +38,7 @@ window.HN = {
 				button.onPressed.addListener () ->
 					HN.router.navigate("jobs" , true);
 		forge.tabbar.addButton
-			icon: "img/user.png"
+			icon: "img/list.png"
 			text: "Ask"
 			index: 3
 			,

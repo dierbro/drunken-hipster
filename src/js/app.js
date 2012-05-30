@@ -13,7 +13,7 @@
       forge.topbar.setTitle("HN");
       forge.topbar.setTint([255, 102, 0, 255]);
       forge.tabbar.addButton({
-        icon: "img/user.png",
+        icon: "img/list.png",
         text: "News",
         index: 0
       }, function(button) {
@@ -24,7 +24,7 @@
         });
       });
       forge.tabbar.addButton({
-        icon: "img/user.png",
+        icon: "img/list.png",
         text: "New",
         index: 1
       }, function(button) {
@@ -33,7 +33,7 @@
         });
       });
       forge.tabbar.addButton({
-        icon: "img/user.png",
+        icon: "img/list.png",
         text: "Job",
         index: 2
       }, function(button) {
@@ -42,7 +42,7 @@
         });
       });
       forge.tabbar.addButton({
-        icon: "img/user.png",
+        icon: "img/list.png",
         text: "Ask",
         index: 3
       }, function(button) {
