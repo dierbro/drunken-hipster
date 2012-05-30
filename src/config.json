@@ -54,6 +54,15 @@
                 "114": "img/icons/iOS/114.png",
                 "prerendered": true
             }
+        },
+        "launchimage": {
+            "iphone": "img/launchimage/iphone.png",
+            "iphone-retina": "img/launchimage/iphone-retina.png",
+            "ipad": "img/launchimage/ipad.png",
+            "ipad-landscape": "img/launchimage/ipad-landscape.png",
+            "android": "img/launchimage/android.png",
+            "android-landscape": "img/launchimage/android.png"
         }
+
 	}
 }
