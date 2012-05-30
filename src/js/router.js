@@ -21,6 +21,7 @@
 
     Router.prototype.news = function() {
       var news;
+      HN.TabBarButtons.news.setActive();
       console.log("News");
       news = new HN.Views.News({
         collection: HN.news,
@@ -31,6 +32,7 @@
 
     Router.prototype.newest = function() {
       var newest;
+      HN.TabBarButtons.newest.setActive();
       console.log("Newest");
       newest = new HN.Views.News({
         collection: HN.newest,
@@ -41,6 +43,7 @@
 
     Router.prototype.jobs = function() {
       var jobs;
+      HN.TabBarButtons.jobs.setActive();
       console.log("Jobs");
       jobs = new HN.Views.News({
         collection: HN.jobs,
@@ -51,6 +54,7 @@
 
     Router.prototype.ask = function() {
       var ask;
+      HN.TabBarButtons.ask.setActive();
       console.log("ask");
       ask = new HN.Views.News({
         collection: HN.ask,

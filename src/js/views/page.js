@@ -16,21 +16,33 @@
     Page.prototype.initialize = function() {};
 
     Page.prototype.show = function() {
-      var $old;
+      var $old,
+        _this = this;
       $('.page').css({
         "position": "absolute"
+      });
+      forge.topbar.removeButtons();
+      forge.topbar.addButton({
+        text: "Refresh",
+        position: "right"
+      }, function() {
+        if (_this.collection != null) {
+          return _this.collection.fetch();
+        } else {
+          return _this.model.fetch();
+        }
       });
       console.log(this.options.back);
       if (this.options.back) {
         forge.topbar.addButton({
           text: "Back",
+          type: "back",
           position: "left"
         }, function() {
           return HN.router.navigate("/", true);
         });
         forge.tabbar.hide();
       } else {
-        forge.topbar.removeButtons();
         forge.tabbar.show();
       }
       if ($('.page').length) {

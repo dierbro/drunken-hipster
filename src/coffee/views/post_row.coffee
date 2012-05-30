@@ -9,4 +9,7 @@ class HN.Views.PostRow extends Backbone.View
 		return @
 
 	open: () ->
-		HN.router.navigate("post/" + @model.id, true);
+		if @model.id
+			HN.router.navigate("post/" + @model.id, true)
+		else
+			forge.tabs.open(@model.get("link"))

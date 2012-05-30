@@ -6,6 +6,7 @@
     Collections: {},
     Views: {},
     Utils: {},
+    TabBarButtons: {},
     init: function() {
       var originalSync;
       forge.logging.log("Init");
@@ -17,6 +18,7 @@
         text: "News",
         index: 0
       }, function(button) {
+        window.HN.TabBarButtons.news = button;
         button.setActive();
         return button.onPressed.addListener(function() {
           console.log("button news");
@@ -28,6 +30,7 @@
         text: "New",
         index: 1
       }, function(button) {
+        window.HN.TabBarButtons.newest = button;
         return button.onPressed.addListener(function() {
           return HN.router.navigate("newest", true);
         });
@@ -37,6 +40,7 @@
         text: "Job",
         index: 2
       }, function(button) {
+        window.HN.TabBarButtons.jobs = button;
         return button.onPressed.addListener(function() {
           return HN.router.navigate("jobs", true);
         });
@@ -46,11 +50,18 @@
         text: "Ask",
         index: 3
       }, function(button) {
+        window.HN.TabBarButtons.ask = button;
         return button.onPressed.addListener(function() {
           return HN.router.navigate("ask", true);
         });
       });
       forge.tabbar.show();
+      $(document).on('ajaxStart', function(e, xhr, options) {
+        return $("div#loading").show();
+      });
+      $(document).on('ajaxStop', function(e, xhr, options) {
+        return $("div#loading").hide();
+      });
       originalSync = Backbone.sync;
       Backbone.sync = function(method, model, options) {
         options = _.extend(options, {

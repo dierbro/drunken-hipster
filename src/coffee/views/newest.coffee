@@ -5,7 +5,7 @@ class HN.Views.Newest extends  HN.Views.Page
 		@render()
 
 	render: () ->
-		console.log(@collection)
+		@.$el.html("")
 		@addAll()
 		return @
 

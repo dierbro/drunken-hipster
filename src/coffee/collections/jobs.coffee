@@ -3,4 +3,4 @@ class HN.Collections.Jobs extends Backbone.Collection
 	url: "http://news.ycombinator.com/jobs"
 
 	parse: (response) ->
-		return HN.Utils.NewsParser.parse(response)
+		return HN.Utils.JobsParser.parse(response)

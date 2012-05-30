@@ -3,7 +3,7 @@ window.HN = {
 	Collections: {}
 	Views: {}
 	Utils:	{}
-
+	TabBarButtons: {}
 	init: () ->
 		forge.logging.log("Init")
 
@@ -17,6 +17,7 @@ window.HN = {
 			index: 0
 			,
 			(button) ->
+				window.HN.TabBarButtons.news = button
 				button.setActive()
 				button.onPressed.addListener () ->
 					console.log("button news")
@@ -27,6 +28,7 @@ window.HN = {
 			index: 1
 			,
 			(button) ->
+				window.HN.TabBarButtons.newest = button
 				button.onPressed.addListener () ->
 					HN.router.navigate("newest" , true);
 		forge.tabbar.addButton
@@ -35,6 +37,7 @@ window.HN = {
 			index: 2
 			,
 			(button) ->
+				window.HN.TabBarButtons.jobs = button
 				button.onPressed.addListener () ->
 					HN.router.navigate("jobs" , true);
 		forge.tabbar.addButton
@@ -43,10 +46,18 @@ window.HN = {
 			index: 3
 			,
 			(button) ->
+				window.HN.TabBarButtons.ask = button
 				button.onPressed.addListener () ->
 					HN.router.navigate("ask" , true);
 
 		forge.tabbar.show()
+
+		$(document).on 'ajaxStart', (e, xhr, options) ->
+			$("div#loading").show()
+		$(document).on 'ajaxStop', (e, xhr, options) ->
+			$("div#loading").hide()
+
+			
 		originalSync = Backbone.sync
 
 		# Our new overriding sync with dataType and ContentType

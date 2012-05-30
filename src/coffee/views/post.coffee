@@ -10,7 +10,7 @@ class HN.Views.Post extends  HN.Views.Page
 		@model.fetch()
 
 	render: () ->
-		@.$el.append(@.template(@model.toJSON()))
+		@.$el.html(@.template(@model.toJSON()))
 		@.$el.append(@model.get("body"))
 		@.$el.append(@.template_commands(@model.toJSON()))
 		for comment in @model.comments()

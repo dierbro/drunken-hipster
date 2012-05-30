@@ -20,7 +20,7 @@
     };
 
     Newest.prototype.render = function() {
-      console.log(this.collection);
+      this.$el.html("");
       this.addAll();
       return this;
     };

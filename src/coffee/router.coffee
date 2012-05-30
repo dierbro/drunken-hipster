@@ -7,6 +7,7 @@ class HN.Router extends Backbone.Router
 		"post/:id": "post"
 
 	news: ->
+		HN.TabBarButtons.news.setActive()
 		console.log("News")
 		news = new HN.Views.News(
 			collection: HN.news
@@ -16,6 +17,7 @@ class HN.Router extends Backbone.Router
 		news.show()
 
 	newest: ->
+		HN.TabBarButtons.newest.setActive()
 		console.log("Newest")
 		newest = new HN.Views.News(
 			collection: HN.newest
@@ -24,6 +26,7 @@ class HN.Router extends Backbone.Router
 
 		newest.show()
 	jobs: ->
+		HN.TabBarButtons.jobs.setActive()
 		console.log("Jobs")
 		jobs = new HN.Views.News(
 			collection: HN.jobs
@@ -32,6 +35,7 @@ class HN.Router extends Backbone.Router
 
 		jobs.show()
 	ask: ->
+		HN.TabBarButtons.ask.setActive()
 		console.log("ask")
 		ask = new HN.Views.News(
 			collection: HN.ask

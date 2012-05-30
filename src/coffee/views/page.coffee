@@ -6,18 +6,31 @@ class HN.Views.Page extends Backbone.View
 	
 	show: () ->
 		$('.page').css({"position": "absolute"})
+		forge.topbar.removeButtons()
+		forge.topbar.addButton(
+				text: "Refresh"
+				position: "right"
+				, () =>
+					if @collection?
+						@collection.fetch()
+					else
+						@model.fetch()
+				)
+		
 		console.log @options.back
 		if @options.back
 			forge.topbar.addButton(
 				text: "Back"
+				type: "back"
 				position: "left"
 				, () ->
 					HN.router.navigate("/" , true);
 				)
 			forge.tabbar.hide()
 		else
-			forge.topbar.removeButtons()
+			
 			forge.tabbar.show()
+
 
 		if $('.page').length
 			$old = $('.page').not(@.el)

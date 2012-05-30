@@ -16,7 +16,7 @@
     Jobs.prototype.url = "http://news.ycombinator.com/jobs";
 
     Jobs.prototype.parse = function(response) {
-      return HN.Utils.NewsParser.parse(response);
+      return HN.Utils.JobsParser.parse(response);
     };
 
     return Jobs;

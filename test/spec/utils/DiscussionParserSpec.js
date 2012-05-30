@@ -6,8 +6,7 @@ describe("HN.Utils.DiscussionParser", function() {
   });
 
   it("should return the correct number of posts", function() {
-    console.log(parsed.comments)
-	expect(parsed.comments.length).toEqual(56)
+  	expect(parsed.comments.length).toEqual(56)
   });
 
   it("should parse the news", function() {

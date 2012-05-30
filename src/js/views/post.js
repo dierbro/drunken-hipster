@@ -27,7 +27,7 @@
 
     Post.prototype.render = function() {
       var comment, view, _i, _len, _ref;
-      this.$el.append(this.template(this.model.toJSON()));
+      this.$el.html(this.template(this.model.toJSON()));
       this.$el.append(this.model.get("body"));
       this.$el.append(this.template_commands(this.model.toJSON()));
       _ref = this.model.comments();

@@ -25,7 +25,11 @@
     };
 
     PostRow.prototype.open = function() {
-      return HN.router.navigate("post/" + this.model.id, true);
+      if (this.model.id) {
+        return HN.router.navigate("post/" + this.model.id, true);
+      } else {
+        return forge.tabs.open(this.model.get("link"));
+      }
     };
 
     return PostRow;
