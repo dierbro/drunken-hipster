@@ -16,7 +16,8 @@
       "newest": "newest",
       "jobs": "jobs",
       "ask": "ask",
-      "post/:id": "post"
+      "post/:id": "post",
+      "user/:id": "user"
     };
 
     Router.prototype.news = function() {
@@ -74,6 +75,19 @@
         back: true
       });
       return post.show();
+    };
+
+    Router.prototype.user = function(id) {
+      var model, user;
+      console.log("User -" + id);
+      model = new HN.Models.User({
+        user: id
+      });
+      user = new HN.Views.User({
+        model: model,
+        back: true
+      });
+      return user.show();
     };
 
     return Router;

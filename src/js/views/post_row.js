@@ -15,12 +15,18 @@
 
     PostRow.prototype.template = _.template($('#post-row').html());
 
+    PostRow.prototype.template_commands = _.template($('#post-row-commands').html());
+
     PostRow.prototype.events = {
-      "click": "open"
+      "click div.post": "open",
+      'longTap': "toggle_menu",
+      'click li.user': 'show_user'
     };
 
     PostRow.prototype.render = function() {
       this.$el.append(this.template(this.model.toJSON()));
+      this.$el.append(this.template_commands(this.model.toJSON()));
+      this.$el.find("ul.menu").hide();
       return this;
     };
 
@@ -30,6 +36,14 @@
       } else {
         return forge.tabs.open(this.model.get("link"));
       }
+    };
+
+    PostRow.prototype.toggle_menu = function() {
+      return this.$el.find("ul.menu").toggle();
+    };
+
+    PostRow.prototype.show_user = function() {
+      return HN.router.navigate("user/" + this.model.get("user"), true);
     };
 
     return PostRow;

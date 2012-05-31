@@ -23,8 +23,6 @@ class HN.Views.Page extends Backbone.View
 				text: "Back"
 				type: "back"
 				position: "left"
-				, () ->
-					HN.router.navigate("/" , true);
 				)
 			forge.tabbar.hide()
 		else

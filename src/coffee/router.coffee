@@ -5,6 +5,7 @@ class HN.Router extends Backbone.Router
 		"jobs" : "jobs"
 		"ask" : "ask"
 		"post/:id": "post"
+		"user/:id": "user"
 
 	news: ->
 		HN.TabBarButtons.news.setActive()
@@ -53,4 +54,13 @@ class HN.Router extends Backbone.Router
 			back: true
 		)
 		post.show()
+
+	user: (id) ->
+		console.log("User -"+id)
+		model = new HN.Models.User({user: id})
+		user = new HN.Views.User(
+				model: model
+				back: true
+			)
+		user.show()
 		

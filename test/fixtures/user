@@ -1,0 +1,29 @@
+<html><head><link rel="stylesheet" type="text/css" href="http://ycombinator.com/news.css">
+<link rel="shortcut icon" href="http://ycombinator.com/favicon.ico">
+<script>
+function byId(id) {
+  return document.getElementById(id);
+}
+
+function vote(node) {
+  var v = node.id.split(/_/);   // {'up', '123'}
+  var item = v[1]; 
+
+  // hide arrows
+  byId('up_'   + item).style.visibility = 'hidden';
+  byId('down_' + item).style.visibility = 'hidden';
+
+  // ping server
+  var ping = new Image();
+  ping.src = node.href;
+
+  return false; // cancel browser nav
+} </script><title>Profile: pg | Hacker News</title></head><body><center><table border=0 cellpadding=0 cellspacing=0 width="85%" bgcolor=#f6f6ef><tr><td bgcolor=#ff6600><table border=0 cellpadding=0 cellspacing=0 width="100%" style="padding:2px"><tr><td style="width:18px;padding-right:4px"><a href="http://ycombinator.com"><img src="http://ycombinator.com/images/y18.gif" width=18 height=18 style="border:1px #ffffff solid;"></img></a></td><td style="line-height:12pt; height:10px;"><span class="pagetop"><b><a href="news">Hacker News</a></b><img src="http://ycombinator.com/images/s.gif" height=1 width=10><a href="newest">new</a> | <a href="newcomments">comments</a> | <a href="ask">ask</a> | <a href="jobs">jobs</a> | <a href="submit">submit</a></span></td><td style="text-align:right;padding-right:4px;"><span class="pagetop"><a href="newslogin?whence=%75%73%65%72%3f%69%64%3d%70%67">login</a></span></td></tr></table></td></tr><tr style="height:10px"></tr><tr><td><form method=post action="/x"><input type=hidden name="fnid" value="lbkU0H3wCU"><table border=0><tr><td valign=top>user:</td><td>pg</td></tr>
+<tr><td valign=top>created:</td><td>2060 days ago</td></tr>
+<tr><td valign=top>karma:</td><td>115970</td></tr>
+<tr><td valign=top>avg:</td><td>15.26</td></tr>
+<tr><td valign=top>about:</td><td>Bug fixer.</td></tr>
+<tr><td></td><td><a href="submitted?id=pg"><u>submissions</u></a></td></tr>
+<tr><td></td><td><a href="threads?id=pg"><u>comments</u></a></td></tr>
+</table></form><br><br>
+</td></tr></table></center></body></html>

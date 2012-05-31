@@ -38,8 +38,6 @@
           text: "Back",
           type: "back",
           position: "left"
-        }, function() {
-          return HN.router.navigate("/", true);
         });
         forge.tabbar.hide();
       } else {

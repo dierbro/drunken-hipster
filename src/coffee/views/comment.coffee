@@ -3,6 +3,7 @@ class HN.Views.Comment extends Backbone.View
 	template_menu: _.template($('#discussion-comment-menu').html())
 	events:
 		'longTap': "toggle_menu"
+		'click li.user': 'show_user'
 
 	render: () ->
 		@.$el.append(@.template_menu(@.model.toJSON()))
@@ -10,8 +11,9 @@ class HN.Views.Comment extends Backbone.View
 		@.$el.find("ul.menu").hide()
 		return @
 
-	open: () ->
-		HN.router.navigate("post/" + @model.id, true);
-
 	toggle_menu: ->
 		@.$el.find("ul.menu").toggle()	    
+
+	show_user: ->
+		console.log("user ->"+ @model.get("user"))
+		HN.router.navigate("user/" + @model.get("user"), true);		

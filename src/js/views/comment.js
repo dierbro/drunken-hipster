@@ -16,7 +16,8 @@
     Comment.prototype.template_menu = _.template($('#discussion-comment-menu').html());
 
     Comment.prototype.events = {
-      'longTap': "toggle_menu"
+      'longTap': "toggle_menu",
+      'click li.user': 'show_user'
     };
 
     Comment.prototype.render = function() {
@@ -26,12 +27,13 @@
       return this;
     };
 
-    Comment.prototype.open = function() {
-      return HN.router.navigate("post/" + this.model.id, true);
-    };
-
     Comment.prototype.toggle_menu = function() {
       return this.$el.find("ul.menu").toggle();
+    };
+
+    Comment.prototype.show_user = function() {
+      console.log("user ->" + this.model.get("user"));
+      return HN.router.navigate("user/" + this.model.get("user"), true);
     };
 
     return Comment;

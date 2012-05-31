@@ -2,28 +2,35 @@
 <html>
 	<head>
 		<title>Hello World!</title>
-
 		<script type="text/template" id="post-row">
-			<p class='title'> <%= title %>
-				<% if(domain){ %>
-					<span>   (<%= domain %>)</span>
-				<% } %>
-			
-			</p>
-			<p>
-				<% if(!isNaN(points)){ %>
-					<span class='points'><%= points %> points </span> - 
-				<% } %>
-				<% if(user){ %>
-					<span class='user'><%= user %></span>
-				<% } %>
-			</p>
+			<div class="post">
+				<p class='title'> <%= title %>
+					<% if(domain){ %>
+						<span>   (<%= domain %>)</span>
+					<% } %>
+				
+				</p>
+				<p>
+					<% if(!isNaN(points)){ %>
+						<span class='points'><%= points %> points </span> - 
+					<% } %>
+					<% if(user){ %>
+						<span class='user'><%= user %></span>
+					<% } %>
+				</p>
+			</div>
+		</script>
+		<script type="text/template" id="post-row-commands">
+			<ul  class="menu">
+				<li class="user"><img src="img/user.png" alt="external browser"/></li>
+				<li><a href="<%= link %>"><img src="img/external_browser.png" alt="external browser"/></a></li>
+			</ul>
 		</script>
 		<script type="text/template" id="discussion-commands">
 			<p class="commands"> 
-				<span>
-					<a href="<%= link %>"><img src="img/external_browser.png" alt="external browser"></a>
-				</span>
+				<ul  class="menu">
+					<li><a href="<%= link %>"><img src="img/external_browser.png" alt="external browser"/></a></li>
+				</ul>
 			</p>
 		</script>
 		<script type="text/template" id="discussion-comment">
@@ -38,9 +45,31 @@
 		</script>
 		<script type="text/template" id="discussion-comment-menu">
 			<ul  class="menu">
-				<li><img src="img/user.png" alt="external browser"></a></li>
-				<li><img src="img/reply.png" alt="external browser"></a></li>
+				<li class="user"><img src="img/user.png" alt="external browser"/></li>
 			</ul>
+		</script>
+		<script type="text/template" id="user">
+			<table>
+				<caption><%= user %></caption>
+				<tbody>
+					<tr>
+						<th>created:</th>
+						<td><%= created %></td>
+					</tr>
+					<tr>
+						<th>karma:</th>
+						<td><%= karma %></td>
+					</tr>
+					<tr>
+						<th>avg:</th>
+						<td><%= avg %></td>
+					</tr>
+					<tr>
+						<th>about:</th>
+						<td><%= about %></td>
+					</tr>
+				</tbody>
+			</table>
 		</script>
 		<link rel="stylesheet" href="css/default.css" type="text/css">
 		<script type="text/javascript" src="lib/zepto.min.js"></script>
@@ -53,11 +82,13 @@
 		<script type="text/javascript" src="js/utils/news_parser.js"></script>
 		<script type="text/javascript" src="js/utils/discussion_parser.js"></script>
 		<script type="text/javascript" src="js/utils/jobs_parser.js"></script>
+		<script type="text/javascript" src="js/utils/user_parser.js"></script>
 		<script type="text/javascript" src="js/utils/utils.js"></script>
 		<script type="text/javascript" src="js/router.js"></script>
 		<script type="text/javascript" src="js/models/post.js"></script>
 		<script type="text/javascript" src="js/models/discussion.js"></script>
 		<script type="text/javascript" src="js/models/comment.js"></script>
+		<script type="text/javascript" src="js/models/user.js"></script>
 		<script type="text/javascript" src="js/collections/news.js"></script>
 		<script type="text/javascript" src="js/collections/newest.js"></script>
 		<script type="text/javascript" src="js/collections/ask.js"></script>
@@ -67,6 +98,7 @@
 		<script type="text/javascript" src="js/views/post_row.js"></script>
 		<script type="text/javascript" src="js/views/post.js"></script>
 		<script type="text/javascript" src="js/views/comment.js"></script>
+		<script type="text/javascript" src="js/views/user.js"></script>
 		<script type="text/javascript">
 			HN.init();
 		</script>
